@@ -3,7 +3,7 @@ A NBA Information Web like HUPU with MysqlDB.
 
 Final Achievement Display:
 
-![image](https://github.com/MyLife97/SimpleWeb/images/ResultShow_1.png)
+![image](https://github.com/MyLife97/SimpleWeb/blob/master/images/ResultShow_1.png)
 
 ![image](https://github.com/MyLife97/SimpleWeb/images/ResultShow_2.png)
 
