@@ -19,7 +19,7 @@ Sign In Page
 
 Home Page
 
-![image]((https://github.com/MyLife97/SimpleWeb/blob/master/images/ResultShow_6.png)
+![image](https://github.com/MyLife97/SimpleWeb/blob/master/images/ResultShow_6.png)
 
 Team Info Page
 
