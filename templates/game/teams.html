@@ -1,0 +1,83 @@
+{% extends 'game/base.html' %}
+{% load index %}
+{% block content %}
+    <section class="content-header">
+      <h1>
+        Team Ranking
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/game/home"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Teams</li>
+      </ol>
+    </section>
+    <section class="content">
+<div class="row">
+    <div class="col-lg-6 col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">West Teams</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>球队</th>
+                        <th>胜-负</th>
+                        <th>胜率</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for team in west_teams %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td><a href="/game/team={{ team.team_name }}">{{ team.team_name }}</a></td>
+                        <td>{{ west_team_list|get_at_index:forloop.counter0|get_at_index:1}}-
+                            {{ west_team_list|get_at_index:forloop.counter0|get_at_index:2}}</td>
+                        <td>{{ west_team_list|get_at_index:forloop.counter0|get_at_index:3}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+
+    <div class="col-lg-6 col-xs-12">
+       <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">East Teams</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>球队</th>
+                        <th>胜-负</th>
+                        <th>胜率</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for team in east_teams %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td><a href="/game/team={{ team.team_name }}">{{ team.team_name }}</a></td>
+                        <td>{{ east_team_list|get_at_index:forloop.counter0|get_at_index:1}}-
+                            {{ east_team_list|get_at_index:forloop.counter0|get_at_index:2}}</td>
+                        <td>{{ east_team_list|get_at_index:forloop.counter0|get_at_index:3}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+    </section>
+{% endblock %}

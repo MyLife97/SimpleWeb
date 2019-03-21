@@ -1,10 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1> This is schedule </h1>
-</body>
-</html>
+{% extends 'game/base.html' %}
+{% block csshead %}
+<style type="text/css">
+tr, th {
+    text-align: center;
+    vertical-align: middle;
+}
+</style>
+{% endblock %}
+{% block content %}
+    <section class="content-header">
+      <h1>
+        Schedule
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/game/home"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Schedule</li>
+      </ol>
+    </section>
+    <section class="content">
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <!-- /.box-header -->
+            <div class="box-body text-center">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>客队</th>
+                        <th>比分</th>
+                        <th>主队</th>
+                        <th>数据</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                    <tbody>
+                    {% for game in games %}
+                    <tr>
+                        <td>{{ game.date.year }}-{{ game.date.month }}-{{ game.date.day }}</td>
+                        <td>
+                            <a href="/game/team={{ game.visit_team.team_name }}">
+                                {{ game.visit_team.team_name }}
+                            </a>
+                        </td>
+                        <td>
+                        {% if game.visit_team_point > game.home_team_point %}
+                            <b>{{ game.visit_team_point }}</b>-{{ game.home_team_point }}
+                        {% else %}
+                            {{ game.visit_team_point }}-<b>{{ game.home_team_point }}</b>
+                        {% endif %}
+                        </td>
+                        <td>
+                            <a href="/game/team={{ game.home_team.team_name }}">
+                                {{ game.home_team.team_name }}
+                            </a>
+                        </td>
+                        <td><a href="/game/game={{ game.game_id }}">数据</a></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+    </section>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'game/base.html' %}
+{% block content %}
+    <section class="content-header">
+        <div class="">
+            <h1>Charge Coins</h1>
+        </div>
+    </section>
+
+    <section class="content">
+
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h1>Charge Coins</h1>
+            </div>
+            <div class="box-body">
+                <form action="charge" method="post" autocomplete="off">
+                    {% csrf_token %}
+                    <h3>Input Amount</h3>
+                    <div class="input-group">
+                        <span class="input-group-addon">￥</span>
+                        <input type="text" name="amount" class="form-control" required>
+                    </div>
+                    <br>
+
+                    <h3>Email for invoice</h3>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        <input type="email" name="email" class="form-control" placeholder="Email" required>
+                    </div>
+                    <br>
+                    <br>
+                    <div class=>
+                        <button type="submit" class="pull-right btn btn-primary">
+                            <h4>Submit</h4>
+                        </button>
+                    </div>
+                    {% if message %}
+                        <h4>{{ message }}</h4>
+                    {% endif %}
+                    <br>
+                    <br>
+                    <br>
+                </form>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+        </div>
+    </section>
+
+{% endblock %}
